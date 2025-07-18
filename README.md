@@ -1,1 +1,141 @@
-# evas-graphics-site
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eva's World of Graphics</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f0f0f0, #d1ecf1);
+      text-align: center;
+      color: #333;
+    }
+
+    header {
+      background-color: #0088cc;
+      padding: 30px 20px;
+    }
+
+    header img {
+      width: 100px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      margin-top: 10px;
+      font-size: 32px;
+      color: white;
+    }
+
+    header p {
+      font-size: 18px;
+      color: #e6f7ff;
+    }
+
+    .countdown-section {
+      padding: 40px 20px;
+    }
+
+    .countdown-section h2 {
+      font-size: 28px;
+      color: #004466;
+      margin-bottom: 20px;
+    }
+
+    #countdown {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    #countdown div {
+      background: #0088cc;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      min-width: 90px;
+    }
+
+    #countdown small {
+      display: block;
+      font-size: 14px;
+      font-weight: normal;
+      margin-top: 5px;
+    }
+
+    footer {
+      background: #004466;
+      color: white;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      #countdown {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with Logo -->
+  <header>
+    <img src="c:\Users\UTECH PC4\Desktop\66666.jpg" alt="Eva's World Logo">
+    <h1>Eva's World of Graphics</h1>
+    <p>Creativity. Design. Excellence.</p>
+  </header>
+
+  <!-- Countdown Section -->
+  <section class="countdown-section">
+    <h2>We are preparing the site for your satisfaction!</h2>
+    <div id="countdown">
+      <div><span id="days">1</span><small>Days</small></div>
+      <div><span id="hours">3</span><small>Hours</small></div>
+      <div><span id="minutes">4</span><small>Minutes</small></div>
+      <div><span id="seconds">2</span><small>Seconds</small></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Eva's World of Graphics. All rights reserved.
+  </footer>
+
+  <!-- Countdown Script -->
+  <script>
+    const launchDate = new Date("August 1, 2025 00:00:00").getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML = "We’ve Launched!";
+        return;
+      }
+
+      document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+      document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+    }, 1000);
+  </script>
+
+</body>
+</html>
